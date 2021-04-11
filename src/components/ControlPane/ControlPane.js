@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import ToggleButton from '../ToggleButton';
-import ButtonRow from '../ButtonRow';
+import ToggleButton from "../ToggleButton";
+import ButtonRow from "../ButtonRow";
 
-import styles from './ControlPane.module.css';
+import styles from "./ControlPane.module.css";
 
 const ControlPane = ({
   title,
@@ -17,22 +17,22 @@ const ControlPane = ({
       <h2 className={styles.title}>
         {title}
 
-        <span className={styles.metadata}>
-          {options.length} options
-        </span>
+        <span className={styles.metadata}>{options.length} options</span>
       </h2>
       <ButtonRow>
-        {options.map(({ id, label, color, children }) => (
-          <ToggleButton
-            key={id}
-            isSelected={currentOption === id}
-            onClick={() => handleSelectOption(id)}
-            label={label}
-            color={color}
-          >
-            {children}
-          </ToggleButton>
-        ))}
+        <div className={styles.buttonRowWrapper}>
+          {options.map(({ id, label, color, children }) => (
+            <ToggleButton
+              key={id}
+              isSelected={currentOption === id}
+              onClick={() => handleSelectOption(id)}
+              label={label}
+              color={color}
+            >
+              {children}
+            </ToggleButton>
+          ))}
+        </div>
       </ButtonRow>
     </div>
   );
